@@ -1,0 +1,40 @@
+#navbar{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.421);
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+h2 a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+input[type="text"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 200px;
+}
+input[type="text"]:focus {
+  border: 1.5px solid #ff7300;
+}
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff7300;
+  color: #black;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  background-color: #e6a523;
+}
