@@ -23,7 +23,7 @@ a:hover {
 
 
 
-/*
+
 @media (max-width: 768px) {
   .movie-card {
     width: calc(50% - 15px);
@@ -34,4 +34,4 @@ a:hover {
   .movie-card {
     width: 100%;
   }
-}*/
+}

@@ -31,10 +31,13 @@ button {
   border-radius: 5px;
   border: none;
   background-color: #ff7300;
-  color: #black;
+  color: #000;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 button:hover {
   background-color: #e6a523;
 }
+
+.navbar.usuario {
+  
