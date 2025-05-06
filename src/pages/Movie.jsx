@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import {
   BsGraphUp,
   BsWallet2,
-  BsFillFileEarmarkTextFill,
+  BsHourglassSplit,
+  BsBookFill,
 } from "react-icons/bs";
 
 import "./Movie.css";
@@ -36,6 +37,7 @@ const Movie = () => {
       console.error("Erro ao buscar filmes:", error.message);
     }
   };
+  
   useEffect(() => {
     const movieUrl = `${moviesURL}${id}?language=pt-BR`;
     console.log("URL", movieUrl);
@@ -45,23 +47,29 @@ const Movie = () => {
   return (
     <div className="movie-page">
       {!movie ?(
-         <p>Carregando...</p>
+          <p>Carregando...</p>
       ): (
         
           <>
             <MovieCard movie={movie} showLink={false} />
             {movie.tagline && <div className="tagline">{movie.tagline}</div> }
-            <div className="info">
-              <BsWallet2/> Orçamento: {movie.budget ? `$${movie.budget}`: "Sem Dados"}
+            <div className="descr">
+              <BsBookFill/> Descrição: {movie.overview ? `${movie.overview}`: "Sem Dados"}
             </div>
             <div className="info">
-              <BsWallet2/> Orçamento: {movie.budget ? `$${movie.budget}`: "Sem Dados"}
+              <BsHourglassSplit/> Duração: {" "} {movie.runtime ? `${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}min`: "Sem Dados"}
             </div>
             <div className="info">
-              <BsWallet2/> Orçamento: {movie.budget ? `$${movie.budget}`: "Sem Dados"}
+              <BsWallet2/> Orçamento: {" "} {movie.budget ? new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD"
+              }).format(movie.budget): "Sem Dados"}
             </div>
             <div className="info">
-              <BsGraphUp/> Faturamento: {movie.budget ? `$${movie.budget}`: "Sem Dados"}
+              <BsGraphUp/> Faturamento: {" "}{movie.revenue ? new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD"
+              }).format(movie.revenue): "Sem Dados"}
             </div>
 
           </>

@@ -1,14 +1,15 @@
-#navbar{
+#navbar {
   display: flex;
+  flex-wrap: wrap; /* permite quebra de linha quando necessário */
   background-color: rgba(0, 0, 0, 0.421);
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
 }
-h2 a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+
+#navbar h2 {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 form {
@@ -16,6 +17,7 @@ form {
   align-items: center;
   gap: 0.5rem;
 }
+
 input[type="text"] {
   padding: 5px;
   border-radius: 5px;
@@ -23,9 +25,11 @@ input[type="text"] {
   outline: none;
   width: 200px;
 }
+
 input[type="text"]:focus {
   border: 1.5px solid #ff7300;
 }
+
 button {
   padding: 5px 10px;
   border-radius: 5px;
@@ -35,9 +39,64 @@ button {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
+
 button:hover {
   background-color: #e6a523;
 }
 
-.navbar.usuario {
-  
+/* -------- Responsividade -------- */
+@media (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  form {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    flex: 1;
+  }
+
+  button {
+    width: auto;
+  }
+
+  #navbar h2 a {
+    font-size: 1rem;
+  }
+
+  #usuario {
+    font-size: 1.5rem;
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  #navbar {
+    padding: 10px;
+  }
+
+  #navbar h2 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  input[type="text"], button {
+    width: 100%;
+  }
+
+  #usuario {
+    align-self: center;
+  }
+}
